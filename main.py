@@ -2,6 +2,7 @@ import sqlite3
 import requests
 import json
 import sqlite3 as sq3
+from bs4 import BeautifulSoup
 
 
 def initDB(db_name):
@@ -21,33 +22,31 @@ def initDB(db_name):
     return db
 
 
-
-
-
-'''
-stats is a list of data tuples, i.e:
-[
-("ab", 2000, "points", 100),
-...
-]
-
-It's expected that all strings are lowercase and underscores replace any spaces
-'''
 def insertTeamStats(db, stats):
+    """
+    stats is a list of data tuples, i.e:
+    [
+    ("ab", 2000, "points", 100),
+    ...
+    ]
+
+    It's expected that all strings are lowercase and underscores replace any spaces
+    """
+
     curs = db.curs()
     curs.execute("INSERT INTO team VALUES (?, ?, ?, ?)", stats)
     curs.close()
 
 
-'''
-stats is a list of data tuples, i.e:
-[
-("jacob_deinum", 2022, "blocks", 100),
-...
-]
-It's expected that all strings are lowercase and underscores replace any spaces
-'''
 def insertIndividualStats(db, stats):
+    """
+    stats is a list of data tuples, i.e:
+    [
+    ("jacob_deinum", 2022, "blocks", 100),
+    ...
+    ]
+    It's expected that all strings are lowercase and underscores replace any spaces
+    """
     curs = db.cursor()
     curs.execute("INSERT INTO team VALUES (?, ?, ?, ?)", stats)
     curs.close()
@@ -64,10 +63,12 @@ def getPage(url):
     return r
 
 
-# if team is None, we want overall team stats from a particular year
-# otherwise we want individual stats from a particular team for a particular
-# year
 def craftUrl(team, year):
+    """
+    if team is None, we want overall team stats from a particular year
+    otherwise we want individual stats from a particular team for a particular
+    year
+    """
     if team:
         url = "https://canadawest.org/teamstats.aspx?path=mvball&year={}&school={}".format(year, team)
     else:
@@ -112,7 +113,6 @@ def main():
 
     # open up and initialize the DB
     conn = initDB("stats.db")
-
 
 
 if __name__ == "__main__":
