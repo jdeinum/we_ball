@@ -107,6 +107,9 @@ def extractTeamStats(response):
         # get the first row
         x = table.findAll("th")
         x = np.array([a.string for a in x])
+        
+        # seperate the first row into headers and teams
+        print(x)  
 
 
         # now we split values in the array
@@ -120,7 +123,6 @@ def extractTeamStats(response):
                 # except:
                 #     print(headers)
                 pass
-
 
 
 def extractIndividualStats(response):
