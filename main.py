@@ -53,12 +53,11 @@ def insertIndividualStats(db, stats):
 
 
 def getPage(url):
-    r = requests.get(url, headers={'User-Agent': 'Custom'})
-    
+    r = requests.get(url, headers={"User-Agent": "Custom"})
+
     if r.status_code != 200:
         # will deal with this better later
         raise Exception("Request unsuccessful.")
-        return
 
     return r
 
@@ -70,26 +69,46 @@ def craftUrl(team, year):
     year
     """
     if team:
-        url = "https://canadawest.org/teamstats.aspx?path=mvball&year={}&school={}".format(year, team)
+        url = "https://canadawest.org/teamstats.aspx?path=mvball&year={}&school={}".format(
+            year, team
+        )
     else:
         url = "https://canadawest.org/stats.aspx?path=mvball&year={}".format(year)
-    
+
     return url
 
 
 def extractTeamStats(response):
+    """
+    Given an http response, returns a list of data tuples following the team
+    database format, i.e:
+    [
+        ("ab", "blocks", 100),
+        ...
+    ]
+    """
     stats = json.loads(response.json())
     print(stats)
 
 
 def extractIndividualStats(response):
+    """
+    Given an http response, returns a list of data tuples following the individual
+    database format, i.e:
+    [
+        ("ab", "blocks", 100),
+        ...
+    ]
+    """
     stats = response.json()
     print(stats)
+
 
 def req_test(team, year):
     url = craftUrl(team, year)
     page = getPage(url)
     extractIndividualStats(page)
+
 
 def main():
     teams = [
@@ -107,9 +126,6 @@ def main():
         "calgary",
         "ubco",
     ]
-
-    # testing
-    # req_test(teams[0], 2022)
 
     # open up and initialize the DB
     conn = initDB("stats.db")
