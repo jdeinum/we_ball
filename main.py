@@ -1,3 +1,6 @@
+import sqlite3
+import requests
+import json
 import sqlite3 as sq3
 from bs4 import BeautifulSoup
 
@@ -50,7 +53,14 @@ def insertIndividualStats(db, stats):
 
 
 def getPage(url):
-    pass
+    r = requests.get(url, headers={'User-Agent': 'Custom'})
+    
+    if r.status_code != 200:
+        # will deal with this better later
+        raise Exception("Request unsuccessful.")
+        return
+
+    return r
 
 
 def craftUrl(team, year):
@@ -59,16 +69,27 @@ def craftUrl(team, year):
     otherwise we want individual stats from a particular team for a particular
     year
     """
-    pass
+    if team:
+        url = "https://canadawest.org/teamstats.aspx?path=mvball&year={}&school={}".format(year, team)
+    else:
+        url = "https://canadawest.org/stats.aspx?path=mvball&year={}".format(year)
+    
+    return url
 
 
 def extractTeamStats(response):
-    pass
+    stats = json.loads(response.json())
+    print(stats)
 
 
 def extractIndividualStats(response):
-    pass
+    stats = response.json()
+    print(stats)
 
+def req_test(team, year):
+    url = craftUrl(team, year)
+    page = getPage(url)
+    extractIndividualStats(page)
 
 def main():
     teams = [
@@ -86,6 +107,9 @@ def main():
         "calgary",
         "ubco",
     ]
+
+    # testing
+    # req_test(teams[0], 2022)
 
     # open up and initialize the DB
     conn = initDB("stats.db")
