@@ -2,7 +2,8 @@ import sqlite3
 import requests
 import json
 import sqlite3 as sq3
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Doctype
+import numpy as np
 
 
 def initDB(db_name):
@@ -11,8 +12,8 @@ def initDB(db_name):
 
     statements = [
         "PRAGMA foreign_keys = ON;",
-        "CREATE TABLE team(name TEXT, year TEXT, stat TEXT, value REAL);",
-        "CREATE TABLE individual(name TEXT, year TEXT, team TEXT, stat TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
+        "CREATE TABLE IF NOT EXISTS team(name TEXT, year TEXT, stat TEXT, value REAL);",
+        "CREATE TABLE IF NOT EXISTS individual(name TEXT, year TEXT, team TEXT, stat TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
     ]
 
     for x in statements:
@@ -78,6 +79,10 @@ def craftUrl(team, year):
     return url
 
 
+def using_clump(a):
+    return [a[s] for s in np.ma.clump_unmasked(np.ma.masked_invalid(a))]
+
+
 def extractTeamStats(response):
     """
     Given an http response, returns a list of data tuples following the team
@@ -87,8 +92,35 @@ def extractTeamStats(response):
         ...
     ]
     """
-    stats = json.loads(response.json())
-    print(stats)
+    bs = BeautifulSoup(response.text, "html.parser")
+    labels = bs.find_all("caption")
+    labels = [x.string for x in labels][0:13]
+    tables = bs.find_all("table")[0:13]
+
+    for table in tables:
+
+        # get the values
+        values = table.find_all("td")
+        values = [x.string for x in values]
+        values = np.array(values, dtype=np.float64)
+
+        # get the first row
+        x = table.findAll("th")
+        x = np.array([a.string for a in x])
+
+
+        # now we split values in the array
+        split = using_clump(values)
+
+        for i in range(len(teams)):
+            for j in range(len(headers)):
+                # try:
+                #     print("{} | {} | {} | {}".format(teams[i], labels[i], headers[j], split[i][j]))
+                #
+                # except:
+                #     print(headers)
+                pass
+
 
 
 def extractIndividualStats(response):
@@ -106,8 +138,8 @@ def extractIndividualStats(response):
 
 def req_test(team, year):
     url = craftUrl(team, year)
-    page = getPage(url)
-    extractIndividualStats(page)
+    response = getPage(url)
+    extractTeamStats(response)
 
 
 def main():
@@ -126,6 +158,8 @@ def main():
         "calgary",
         "ubco",
     ]
+
+    req_test(None, 2022)
 
     # open up and initialize the DB
     conn = initDB("stats.db")
