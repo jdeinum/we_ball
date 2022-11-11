@@ -97,6 +97,24 @@ def extractTeamStats(response):
     labels = [x.string for x in labels][0:13]
     tables = bs.find_all("table")[0:13]
 
+    result_set = []
+
+    school_lables = [
+        "Alberta",
+        "Trinity Western",
+        "UBC",
+        "Thompson Rivers",
+        "Manitoba",
+        "Mount Royal",
+        "Winnipeg",
+        "Brandon",
+        "UFV",
+        "Saskatchewan",
+        "MacEwan",
+        "Calgary",
+        "UBC Okanagan",
+    ]
+
     for table in tables:
 
         # get the values
@@ -107,22 +125,30 @@ def extractTeamStats(response):
         # get the first row
         x = table.findAll("th")
         x = np.array([a.string for a in x])
-        
-        # seperate the first row into headers and teams
-        print(x)  
 
+        # seperate the first row into headers and teams
+        index = None
+        for i in range(len(x)):
+            if x[i] in school_lables:
+                index = i
+                break
+
+        headers = x[2:index]
+        teams = x[index:]
 
         # now we split values in the array
         split = using_clump(values)
 
         for i in range(len(teams)):
             for j in range(len(headers)):
-                # try:
-                #     print("{} | {} | {} | {}".format(teams[i], labels[i], headers[j], split[i][j]))
-                #
-                # except:
-                #     print(headers)
-                pass
+                team_name = teams[i].lower().replace(" ", "_")
+                stat_name = labels[i].lower().replace(" ", "_")
+                stat_header = headers[j].lower().replace(" ", "_")
+                value = float(split[i][j])
+
+                result_set.append([team_name, stat_name, stat_header, value])
+
+
 
 
 def extractIndividualStats(response):
