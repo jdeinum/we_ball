@@ -5,6 +5,8 @@ import sqlite3 as sq3
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import os
+from bs4 import BeautifulSoup, Doctype
+import numpy as np
 
 
 def initDB(db_name):
@@ -13,8 +15,8 @@ def initDB(db_name):
 
     statements = [
         "PRAGMA foreign_keys = ON;",
-        "CREATE TABLE team(name TEXT, year TEXT, stat TEXT, value REAL);",
-        "CREATE TABLE individual(name TEXT, year TEXT, team TEXT, stat TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
+        "CREATE TABLE IF NOT EXISTS team(name TEXT, year TEXT, stat TEXT, value REAL);",
+        "CREATE TABLE IF NOT EXISTS individual(name TEXT, year TEXT, team TEXT, stat TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
     ]
 
     for x in statements:
@@ -61,12 +63,11 @@ def getPageSource(url):
 
 
 def getPage(url):
-    r = requests.get(url, headers={'User-Agent': 'Custom'})
-    
+    r = requests.get(url, headers={"User-Agent": "Custom"})
+
     if r.status_code != 200:
         # will deal with this better later
         raise Exception("Request unsuccessful.")
-        return
 
     return r
 
@@ -78,16 +79,61 @@ def craftUrl(team, year):
     year
     """
     if team:
-        url = "https://canadawest.org/teamstats.aspx?path=mvball&year={}&school={}".format(year, team)
+        url = "https://canadawest.org/teamstats.aspx?path=mvball&year={}&school={}".format(
+            year, team
+        )
     else:
         url = "https://canadawest.org/stats.aspx?path=mvball&year={}".format(year)
-    
+
     return url
+
+
+def using_clump(a):
+    return [a[s] for s in np.ma.clump_unmasked(np.ma.masked_invalid(a))]
 
 
 def extractTeamStats(response):
     tag = BeautifulSoup(response.text, 'html.parser')
     print(tag.prettify())
+    """
+    Given an http response, returns a list of data tuples following the team
+    database format, i.e:
+    [
+        ("ab", "blocks", 100),
+        ...
+    ]
+    """
+    bs = BeautifulSoup(response.text, "html.parser")
+    labels = bs.find_all("caption")
+    labels = [x.string for x in labels][0:13]
+    tables = bs.find_all("table")[0:13]
+
+    for table in tables:
+
+        # get the values
+        values = table.find_all("td")
+        values = [x.string for x in values]
+        values = np.array(values, dtype=np.float64)
+
+        # get the first row
+        x = table.findAll("th")
+        x = np.array([a.string for a in x])
+        
+        # seperate the first row into headers and teams
+        print(x)  
+
+
+        # now we split values in the array
+        split = using_clump(values)
+
+        for i in range(len(teams)):
+            for j in range(len(headers)):
+                # try:
+                #     print("{} | {} | {} | {}".format(teams[i], labels[i], headers[j], split[i][j]))
+                #
+                # except:
+                #     print(headers)
+                pass
 
 
 def extractIndividualStats(response):
@@ -122,14 +168,13 @@ def extractIndividualStats(response):
             for j in range(len(stat_strings)):
                 stats.append((name, year, stat_strings[j], vals[j]))
 
-    print(stats)
-    return stats
-
-
 def req_test(team, year):
     url = craftUrl(team, year)
     page = getPageSource(url)
     extractIndividualStats(page)
+    response = getPage(url)
+    extractTeamStats(response)
+
 
 def main():
     teams = [
@@ -150,6 +195,7 @@ def main():
 
     # testing
     req_test(teams[0], 2022)
+    req_test(None, 2022)
 
     # open up and initialize the DB
     #conn = initDB("stats.db")
