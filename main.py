@@ -168,12 +168,17 @@ def extractIndividualStats(response):
             for j in range(len(stat_strings)):
                 stats.append((name, year, stat_strings[j], vals[j]))
 
+    return stats
+
 def req_test(team, year):
-    url = craftUrl(team, year)
-    page = getPageSource(url)
-    extractIndividualStats(page)
-    response = getPage(url)
-    extractTeamStats(response)
+    if team:
+        url = craftUrl(team, year)
+        page = getPageSource(url)
+        extractIndividualStats(page)
+    else:
+        url = craftUrl(None, year)
+        response = getPage(url)
+        extractTeamStats(response)
 
 
 def main():
