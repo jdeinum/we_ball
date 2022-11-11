@@ -2,6 +2,9 @@ import sqlite3
 import requests
 import json
 import sqlite3 as sq3
+from bs4 import BeautifulSoup
+from selenium import webdriver
+import os
 from bs4 import BeautifulSoup, Doctype
 import numpy as np
 
@@ -52,6 +55,12 @@ def insertIndividualStats(db, stats):
     curs.execute("INSERT INTO team VALUES (?, ?, ?, ?)", stats)
     curs.close()
 
+def getPageSource(url):
+    os.environ['MOZ_HEADLESS'] = '1'
+    driver = webdriver.Firefox()
+    driver.get(url)
+    return driver.page_source
+
 
 def getPage(url):
     r = requests.get(url, headers={"User-Agent": "Custom"})
@@ -84,6 +93,8 @@ def using_clump(a):
 
 
 def extractTeamStats(response):
+    tag = BeautifulSoup(response.text, 'html.parser')
+    print(tag.prettify())
     """
     Given an http response, returns a list of data tuples following the team
     database format, i.e:
@@ -153,21 +164,47 @@ def extractTeamStats(response):
 
 def extractIndividualStats(response):
     """
-    Given an http response, returns a list of data tuples following the individual
-    database format, i.e:
-    [
-        ("ab", "blocks", 100),
-        ...
-    ]
+    Given the response (html source page), extracts and converts all individual
+    stats to their respective forms. It returns a list of data tuples for all
+    players in the current response page (to be inserted into db).
     """
-    stats = response.json()
-    print(stats)
+    stats = []
 
+    page = BeautifulSoup(response, 'html.parser')
+    year = int((page.find('article').find('h2').string)[0:4])
+    # Need all tables: offence/defence
+    tables = page.find_all('table')
+
+    for table in tables:
+        rows = table.find_all('tr')
+
+        stat_strings = [x.string for x in rows[0].find_all(['th','td'])]
+        # Get rid of player name statistic since this is accounted
+        # for in its row representation in db
+        stat_strings.pop(0)
+
+        for i in range(1, len(rows)):
+            cells = rows[i].find_all(['th','td'])
+            # Format and get player name
+            name = cells[0].string
+            name = name.lower().replace(" ", "_")
+            # Get vals for stats
+            vals = [float(x.string) for x in cells[1::]]
+            
+            for j in range(len(stat_strings)):
+                stats.append((name, year, stat_strings[j], vals[j]))
+
+    return stats
 
 def req_test(team, year):
-    url = craftUrl(team, year)
-    response = getPage(url)
-    extractTeamStats(response)
+    if team:
+        url = craftUrl(team, year)
+        page = getPageSource(url)
+        extractIndividualStats(page)
+    else:
+        url = craftUrl(None, year)
+        response = getPage(url)
+        extractTeamStats(response)
 
 
 def main():
@@ -187,10 +224,12 @@ def main():
         "ubco",
     ]
 
+    # testing
+    req_test(teams[0], 2022)
     req_test(None, 2022)
 
     # open up and initialize the DB
-    conn = initDB("stats.db")
+    #conn = initDB("stats.db")
 
 
 if __name__ == "__main__":
