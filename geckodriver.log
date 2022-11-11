@@ -1,0 +1,348 @@
+1668204933455	geckodriver	INFO	Listening on 127.0.0.1:56171
+*** You are running in headless mode.
+1668204933473	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "32913" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileW33zXx"
+*** You are running in headless mode.
+1668204933653	Marionette	INFO	Marionette enabled
+1668204933655	Marionette	INFO	Listening on port 40211
+Read port: 40211
+WebDriver BiDi listening on ws://127.0.0.1:32913
+1668204933705	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileW33zXx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:32913/devtools/browser/9c9d0a32-eb45-496f-a6c9-683d22b5e48b
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205020418	geckodriver	INFO	Listening on 127.0.0.1:37027
+*** You are running in headless mode.
+1668205020945	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40903" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile8Igmax"
+*** You are running in headless mode.
+1668205021121	Marionette	INFO	Marionette enabled
+1668205021123	Marionette	INFO	Listening on port 45631
+Read port: 45631
+WebDriver BiDi listening on ws://127.0.0.1:40903
+1668205021169	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile8Igmax/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40903/devtools/browser/7d395dd3-a6ff-41fa-8f8a-acb960bb4fe4
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205049429	geckodriver	INFO	Listening on 127.0.0.1:32809
+*** You are running in headless mode.
+1668205049957	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41043" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile3OukJl"
+*** You are running in headless mode.
+1668205050132	Marionette	INFO	Marionette enabled
+1668205050134	Marionette	INFO	Listening on port 38031
+Read port: 38031
+WebDriver BiDi listening on ws://127.0.0.1:41043
+1668205050181	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile3OukJl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41043/devtools/browser/c04f3c6c-a11e-46fa-8389-466f8a512438
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205156857	geckodriver	INFO	Listening on 127.0.0.1:48631
+*** You are running in headless mode.
+1668205157379	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41679" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCPwF4q"
+*** You are running in headless mode.
+1668205157544	Marionette	INFO	Marionette enabled
+1668205157546	Marionette	INFO	Listening on port 33841
+WebDriver BiDi listening on ws://127.0.0.1:41679
+Read port: 33841
+1668205157645	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCPwF4q/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41679/devtools/browser/0887ce47-2824-4b3d-ba1f-d5f5c1b9f91d
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205193820	geckodriver	INFO	Listening on 127.0.0.1:56947
+*** You are running in headless mode.
+1668205194346	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54519" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileln0Lez"
+*** You are running in headless mode.
+1668205194512	Marionette	INFO	Marionette enabled
+1668205194514	Marionette	INFO	Listening on port 40275
+WebDriver BiDi listening on ws://127.0.0.1:54519
+Read port: 40275
+1668205194609	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileln0Lez/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54519/devtools/browser/5fe07c98-8527-4f45-a840-aa7db21584e5
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205253926	geckodriver	INFO	Listening on 127.0.0.1:56805
+*** You are running in headless mode.
+1668205254452	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "36819" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileNKm6Zs"
+*** You are running in headless mode.
+1668205254640	Marionette	INFO	Marionette enabled
+1668205254642	Marionette	INFO	Listening on port 37463
+Read port: 37463
+WebDriver BiDi listening on ws://127.0.0.1:36819
+1668205254693	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileNKm6Zs/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:36819/devtools/browser/6e80bf88-ea7c-4f66-b272-625fe6f542d2
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205293224	geckodriver	INFO	Listening on 127.0.0.1:54231
+*** You are running in headless mode.
+1668205293752	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50161" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileRmL2jY"
+*** You are running in headless mode.
+1668205293925	Marionette	INFO	Marionette enabled
+1668205293927	Marionette	INFO	Listening on port 44479
+Read port: 44479
+WebDriver BiDi listening on ws://127.0.0.1:50161
+1668205293981	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRmL2jY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50161/devtools/browser/5e3820ed-4015-4f53-97ec-33ce3c296078
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205325480	geckodriver	INFO	Listening on 127.0.0.1:38713
+*** You are running in headless mode.
+1668205326001	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "57805" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileRJ4OUD"
+*** You are running in headless mode.
+1668205326187	Marionette	INFO	Marionette enabled
+1668205326190	Marionette	INFO	Listening on port 46747
+Read port: 46747
+WebDriver BiDi listening on ws://127.0.0.1:57805
+1668205326242	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRJ4OUD/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57805/devtools/browser/7af824a3-5389-4c08-aa43-f9284d6de5e3
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205329698	geckodriver	INFO	Listening on 127.0.0.1:32927
+*** You are running in headless mode.
+1668205329735	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33249" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileualrgr"
+*** You are running in headless mode.
+1668205329920	Marionette	INFO	Marionette enabled
+1668205329922	Marionette	INFO	Listening on port 46787
+Read port: 46787
+WebDriver BiDi listening on ws://127.0.0.1:33249
+1668205329975	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileualrgr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:33249/devtools/browser/4baba3d9-e07e-41ae-899e-3867294d9810
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205333305	geckodriver	INFO	Listening on 127.0.0.1:47207
+*** You are running in headless mode.
+1668205333831	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46803" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCspL0s"
+*** You are running in headless mode.
+1668205334024	Marionette	INFO	Marionette enabled
+1668205334026	Marionette	INFO	Listening on port 35199
+Read port: 35199
+WebDriver BiDi listening on ws://127.0.0.1:46803
+1668205334079	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCspL0s/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:46803/devtools/browser/ee2d548f-4278-4294-9e86-d5e16f1d5a17
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205337266	geckodriver	INFO	Listening on 127.0.0.1:37995
+*** You are running in headless mode.
+1668205337797	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "37283" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilehA1WLX"
+*** You are running in headless mode.
+1668205338009	Marionette	INFO	Marionette enabled
+1668205338011	Marionette	INFO	Listening on port 45961
+WebDriver BiDi listening on ws://127.0.0.1:37283
+Read port: 45961
+1668205338168	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehA1WLX/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37283/devtools/browser/92b0a5c0-b998-440c-a485-94c9c96472eb
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205387063	geckodriver	INFO	Listening on 127.0.0.1:41247
+*** You are running in headless mode.
+1668205387591	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43839" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile7s9jFz"
+*** You are running in headless mode.
+1668205387769	Marionette	INFO	Marionette enabled
+1668205387770	Marionette	INFO	Listening on port 45403
+Read port: 45403
+WebDriver BiDi listening on ws://127.0.0.1:43839
+1668205387817	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile7s9jFz/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:43839/devtools/browser/f6b4fbc9-bf0c-41fa-b0b4-566ee0ba38ca
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205391430	geckodriver	INFO	Listening on 127.0.0.1:51143
+*** You are running in headless mode.
+1668205391961	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "59323" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilebeDijH"
+*** You are running in headless mode.
+1668205392177	Marionette	INFO	Marionette enabled
+1668205392179	Marionette	INFO	Listening on port 36697
+WebDriver BiDi listening on ws://127.0.0.1:59323
+Read port: 36697
+1668205392339	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebeDijH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59323/devtools/browser/7d220211-5a57-4e12-a5cb-08f6857849f9
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205395879	geckodriver	INFO	Listening on 127.0.0.1:42817
+*** You are running in headless mode.
+1668205396400	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44563" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilee50T4C"
+*** You are running in headless mode.
+1668205396596	Marionette	INFO	Marionette enabled
+1668205396599	Marionette	INFO	Listening on port 39013
+Read port: 39013
+WebDriver BiDi listening on ws://127.0.0.1:44563
+1668205396665	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilee50T4C/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:44563/devtools/browser/7b54f6dc-c0e7-47ce-b336-52bd998a9710
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205399974	geckodriver	INFO	Listening on 127.0.0.1:53257
+*** You are running in headless mode.
+1668205400499	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42353" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileyE1bJr"
+*** You are running in headless mode.
+1668205400735	Marionette	INFO	Marionette enabled
+1668205400737	Marionette	INFO	Listening on port 40133
+WebDriver BiDi listening on ws://127.0.0.1:42353
+Read port: 40133
+1668205400879	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileyE1bJr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:42353/devtools/browser/a82e7d79-536d-4f17-9122-27335f197eee
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668205412331	geckodriver	INFO	Listening on 127.0.0.1:50479
+*** You are running in headless mode.
+1668205412862	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44389" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileNTVz1Q"
+*** You are running in headless mode.
+1668205413049	Marionette	INFO	Marionette enabled
+1668205413051	Marionette	INFO	Listening on port 44693
+Read port: 44693
+WebDriver BiDi listening on ws://127.0.0.1:44389
+1668205413102	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileNTVz1Q/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:44389/devtools/browser/01a43145-6d23-4d88-b1f6-8b177d2855fe
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205465497	geckodriver	INFO	Listening on 127.0.0.1:60863
+*** You are running in headless mode.
+1668205465517	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "37343" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile9ptBy9"
+*** You are running in headless mode.
+1668205465697	Marionette	INFO	Marionette enabled
+1668205465699	Marionette	INFO	Listening on port 44993
+Read port: 44993
+WebDriver BiDi listening on ws://127.0.0.1:37343
+1668205465751	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile9ptBy9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37343/devtools/browser/bc2311b6-340d-49b9-9d90-d121d390443a
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205501908	geckodriver	INFO	Listening on 127.0.0.1:51083
+*** You are running in headless mode.
+1668205502434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42883" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileP0TtMj"
+*** You are running in headless mode.
+1668205502617	Marionette	INFO	Marionette enabled
+1668205502619	Marionette	INFO	Listening on port 45243
+Read port: 45243
+WebDriver BiDi listening on ws://127.0.0.1:42883
+1668205502670	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileP0TtMj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:42883/devtools/browser/fed941cd-288e-40c6-87e2-66f84ca1a756
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205556974	geckodriver	INFO	Listening on 127.0.0.1:58539
+*** You are running in headless mode.
+1668205557501	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "59153" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilesIArfk"
+*** You are running in headless mode.
+1668205557680	Marionette	INFO	Marionette enabled
+1668205557682	Marionette	INFO	Listening on port 37029
+Read port: 37029
+WebDriver BiDi listening on ws://127.0.0.1:59153
+1668205557733	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilesIArfk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59153/devtools/browser/d50497c5-eb91-48c6-bb8e-eaa21de26f29
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205560468	geckodriver	INFO	Listening on 127.0.0.1:54321
+*** You are running in headless mode.
+1668205561031	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "39631" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilequC1c3"
+*** You are running in headless mode.
+1668205561296	Marionette	INFO	Marionette enabled
+1668205561298	Marionette	INFO	Listening on port 32831
+Read port: 32831
+WebDriver BiDi listening on ws://127.0.0.1:39631
+1668205561375	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilequC1c3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:39631/devtools/browser/77b29d4e-b75b-495f-abf3-f5f7b0658167
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205564610	geckodriver	INFO	Listening on 127.0.0.1:33845
+*** You are running in headless mode.
+1668205565145	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50295" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilekdsrbf"
+*** You are running in headless mode.
+1668205565401	Marionette	INFO	Marionette enabled
+1668205565403	Marionette	INFO	Listening on port 33711
+WebDriver BiDi listening on ws://127.0.0.1:50295
+Read port: 33711
+1668205565526	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilekdsrbf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50295/devtools/browser/752ec9a3-0b4c-47b6-bf89-bbf0c24392a6
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205569125	geckodriver	INFO	Listening on 127.0.0.1:55307
+*** You are running in headless mode.
+1668205569631	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49819" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile2YT9Py"
+*** You are running in headless mode.
+1668205569905	Marionette	INFO	Marionette enabled
+1668205569907	Marionette	INFO	Listening on port 36269
+Read port: 36269
+WebDriver BiDi listening on ws://127.0.0.1:49819
+1668205569984	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2YT9Py/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49819/devtools/browser/9266b1e2-067c-4a31-9c9a-6cb380ba005c
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205635220	geckodriver	INFO	Listening on 127.0.0.1:40043
+*** You are running in headless mode.
+1668205635749	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "45881" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileWok8Z5"
+*** You are running in headless mode.
+1668205635937	Marionette	INFO	Marionette enabled
+1668205635939	Marionette	INFO	Listening on port 45299
+Read port: 45299
+WebDriver BiDi listening on ws://127.0.0.1:45881
+1668205635989	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileWok8Z5/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:45881/devtools/browser/a7008d55-82bd-4119-a9fd-92b3944b3cb3
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1668205664714	geckodriver	INFO	Listening on 127.0.0.1:46929
+*** You are running in headless mode.
+1668205665242	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46767" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileEizYtY"
+*** You are running in headless mode.
+1668205665423	Marionette	INFO	Marionette enabled
+1668205665425	Marionette	INFO	Listening on port 45587
+Read port: 45587
+WebDriver BiDi listening on ws://127.0.0.1:46767
+1668205665475	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileEizYtY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:46767/devtools/browser/35f04dfc-2299-47a1-843b-ec2f934dfb31
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js?bust=0, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead

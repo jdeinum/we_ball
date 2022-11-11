@@ -1,12 +1,13 @@
-import sqlite3
-import requests
 import json
-import sqlite3 as sq3
-from bs4 import BeautifulSoup
-from selenium import webdriver
 import os
+import sqlite3
+import sqlite3 as sq3
+
+from bs4 import BeautifulSoup
 from bs4 import BeautifulSoup, Doctype
 import numpy as np
+import requests
+from selenium import webdriver
 
 
 def initDB(db_name):
@@ -37,7 +38,7 @@ def insertTeamStats(db, stats):
     It's expected that all strings are lowercase and underscores replace any spaces
     """
 
-    curs = db.curs()
+    curs = db.cursor()
     curs.execute("INSERT INTO team VALUES (?, ?, ?, ?)", stats)
     curs.close()
 
@@ -94,8 +95,6 @@ def using_clump(a):
 
 
 def extractTeamStats(response):
-    tag = BeautifulSoup(response.text, "html.parser")
-    print(tag.prettify())
     """
     Given an http response, returns a list of data tuples following the team
     database format, i.e:
@@ -104,7 +103,9 @@ def extractTeamStats(response):
         ...
     ]
     """
-    bs = BeautifulSoup(response.text, "html.parser")
+    bs = BeautifulSoup(response, "html.parser")
+
+
     labels = bs.find_all("caption")
     labels = [x.string for x in labels][0:13]
     tables = bs.find_all("table")[0:13]
@@ -151,14 +152,21 @@ def extractTeamStats(response):
         # now we split values in the array
         split = using_clump(values)
 
+
         for i in range(len(teams)):
             for j in range(len(headers)):
-                team_name = teams[i].lower().replace(" ", "_")
-                stat_name = labels[i].lower().replace(" ", "_")
-                stat_header = headers[j].lower().replace(" ", "_")
-                value = float(split[i][j])
+                try:
+                    team_name = teams[i].lower().replace(" ", "_")
+                    stat_name = labels[i].lower().replace(" ", "_")
+                    stat_header = headers[j].lower().replace(" ", "_")
+                    value = float(split[i][j])
+                    result_set.append((team_name, stat_name, stat_header, value))
+                
+                except:
+                    print(split)
 
-                result_set.append([team_name, stat_name, stat_header, value])
+
+    return np.array(result_set)
 
 
 def extractIndividualStats(response):
@@ -204,7 +212,25 @@ def req_test(team, year):
     else:
         url = craftUrl(None, year)
         response = getPage(url)
-        extractTeamStats(response)
+        print(extractTeamStats(response))
+
+
+def doTeamStats(years, db):
+
+    for year in years:
+        url = craftUrl(None, year)
+
+        response = getPageSource(url) 
+        if not response:
+            continue
+
+        stats = extractTeamStats(response)
+        if len(stats) == 0:
+            continue
+
+        print(stats)
+        insertTeamStats(db, stats)
+
 
 
 def main():
@@ -225,11 +251,16 @@ def main():
     ]
 
     # testing
-    req_test(teams[0], 2022)
-    req_test(None, 2022)
+    # req_test(teams[0], 2022)
 
     # open up and initialize the DB
-    # conn = initDB("stats.db")
+    conn = initDB("stats.db")
+    doTeamStats(range(2018, 2022, 1), conn)
+
+
+
+    conn.close()
+
 
 
 if __name__ == "__main__":
