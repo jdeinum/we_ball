@@ -3,6 +3,8 @@ import requests
 import json
 import sqlite3 as sq3
 from bs4 import BeautifulSoup
+from selenium import webdriver
+import os
 
 
 def initDB(db_name):
@@ -51,6 +53,12 @@ def insertIndividualStats(db, stats):
     curs.execute("INSERT INTO team VALUES (?, ?, ?, ?)", stats)
     curs.close()
 
+def getPageSource(url):
+    os.environ['MOZ_HEADLESS'] = '1'
+    driver = webdriver.Firefox()
+    driver.get(url)
+    return driver.page_source
+
 
 def getPage(url):
     r = requests.get(url, headers={'User-Agent': 'Custom'})
@@ -78,17 +86,49 @@ def craftUrl(team, year):
 
 
 def extractTeamStats(response):
-    stats = json.loads(response.json())
-    print(stats)
+    tag = BeautifulSoup(response.text, 'html.parser')
+    print(tag.prettify())
 
 
 def extractIndividualStats(response):
-    stats = response.json()
+    """
+    Given the response (html source page), extracts and converts all individual
+    stats to their respective forms. It returns a list of data tuples for all
+    players in the current response page (to be inserted into db).
+    """
+    stats = []
+
+    page = BeautifulSoup(response, 'html.parser')
+    year = int((page.find('article').find('h2').string)[0:4])
+    # Need all tables: offence/defence
+    tables = page.find_all('table')
+
+    for table in tables:
+        rows = table.find_all('tr')
+
+        stat_strings = [x.string for x in rows[0].find_all(['th','td'])]
+        # Get rid of player name statistic since this is accounted
+        # for in its row representation in db
+        stat_strings.pop(0)
+
+        for i in range(1, len(rows)):
+            cells = rows[i].find_all(['th','td'])
+            # Format and get player name
+            name = cells[0].string
+            name = name.lower().replace(" ", "_")
+            # Get vals for stats
+            vals = [float(x.string) for x in cells[1::]]
+            
+            for j in range(len(stat_strings)):
+                stats.append((name, year, stat_strings[j], vals[j]))
+
     print(stats)
+    return stats
+
 
 def req_test(team, year):
     url = craftUrl(team, year)
-    page = getPage(url)
+    page = getPageSource(url)
     extractIndividualStats(page)
 
 def main():
@@ -109,10 +149,10 @@ def main():
     ]
 
     # testing
-    # req_test(teams[0], 2022)
+    req_test(teams[0], 2022)
 
     # open up and initialize the DB
-    conn = initDB("stats.db")
+    #conn = initDB("stats.db")
 
 
 if __name__ == "__main__":
