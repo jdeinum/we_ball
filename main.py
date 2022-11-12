@@ -17,8 +17,8 @@ def initDB(db_name):
         "PRAGMA foreign_keys = ON;",
         "CREATE TABLE IF NOT EXISTS team_season(name TEXT, year TEXT, stat TEXT, units TEXT, value REAL);",
         "CREATE TABLE IF NOT EXISTS team(name TEXT, date TEXT, stat TEXT, units TEXT, value REAL);",
-        "CREATE TABLE IF NOT EXISTS individual_season(name TEXT, year TEXT, team TEXT, stat TEXT, units TEXT, value REAL, FOREIGN KEY(team) REFERENCES team_season(name));",
-        "CREATE TABLE IF NOT EXISTS individual(name TEXT, date TEXT, team TEXT, stat TEXT, units TEXT, value REAL, FOREIGN KEY(team) REFERENCES team_season(name));",
+        "CREATE TABLE IF NOT EXISTS individual_season(name TEXT, year TEXT, team TEXT, stat TEXT, units TEXT, value REAL);",
+        "CREATE TABLE IF NOT EXISTS individual(name TEXT, date TEXT, team TEXT, stat TEXT, units TEXT, value REAL);",
     ]
 
     for x in statements:
@@ -213,7 +213,7 @@ def req_test(team, year):
         response = getPage(url)
 
 
-def doTeamStats(years, db):
+def doTeamSeasonStats(years, db):
 
     for year in years:
         url = craftUrl(None, year)
@@ -270,13 +270,17 @@ def doSeasonStats(db):
         "ubco",
     ]
 
-    doTeamStats(range(2018, 2022, 1), db)
+    doTeamSeasonStats(range(2018, 2022, 1), db)
     # doIndividualStats(range(2018, 2022, 1), teams, conn)
+
+
+
 
 
 def main():
     conn = initDB("stats.db")
     doSeasonStats(conn)
+    doWeeklyStats(conn)
     conn.commit()
     conn.close()
 
