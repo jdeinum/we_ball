@@ -16,12 +16,13 @@ def initDB(db_name):
 
     statements = [
         "PRAGMA foreign_keys = ON;",
-        "CREATE TABLE IF NOT EXISTS team(name TEXT, year TEXT, stat TEXT, value REAL);",
+        "CREATE TABLE IF NOT EXISTS team(name TEXT, year TEXT, stat TEXT, units TEXT, value REAL);",
         "CREATE TABLE IF NOT EXISTS individual(name TEXT, year TEXT, team TEXT, stat TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
     ]
 
     for x in statements:
         curs.execute(x)
+
 
     curs.close()
     return db
@@ -39,7 +40,7 @@ def insertTeamStats(db, stats):
     """
 
     curs = db.cursor()
-    curs.execute("INSERT INTO team VALUES (?, ?, ?, ?)", stats)
+    curs.executemany("INSERT INTO team VALUES (?, ?, ?, ?, ?)", stats)
     curs.close()
 
 
@@ -103,12 +104,13 @@ def extractTeamStats(response):
         ...
     ]
     """
-    bs = BeautifulSoup(response, "html.parser")
+    bs = BeautifulSoup(response.text, "html.parser")
 
 
     labels = bs.find_all("caption")
     labels = [x.string for x in labels][0:13]
-    tables = bs.find_all("table")[0:13]
+    tables = bs.find_all("table")[0:13] # only interested in the team stats, not
+                                        # game to game etc
 
     result_set = []
 
@@ -163,7 +165,7 @@ def extractTeamStats(response):
                     result_set.append((team_name, stat_name, stat_header, value))
                 
                 except:
-                    print(split)
+                    print("Error getting stat")
 
 
     return np.array(result_set)
@@ -212,7 +214,6 @@ def req_test(team, year):
     else:
         url = craftUrl(None, year)
         response = getPage(url)
-        print(extractTeamStats(response))
 
 
 def doTeamStats(years, db):
@@ -220,15 +221,20 @@ def doTeamStats(years, db):
     for year in years:
         url = craftUrl(None, year)
 
-        response = getPageSource(url) 
+        response = getPage(url) 
         if not response:
+            print("Invalid Response!")
             continue
 
         stats = extractTeamStats(response)
         if len(stats) == 0:
+            print("no stats for year ", year)
             continue
 
-        print(stats)
+        # insert the year into the stats
+        # year is the second arg
+        stats = [np.insert(x, 1, year) for x in stats]
+
         insertTeamStats(db, stats)
 
 
@@ -256,9 +262,7 @@ def main():
     # open up and initialize the DB
     conn = initDB("stats.db")
     doTeamStats(range(2018, 2022, 1), conn)
-
-
-
+    conn.commit()
     conn.close()
 
 
