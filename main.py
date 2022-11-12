@@ -15,8 +15,10 @@ def initDB(db_name):
 
     statements = [
         "PRAGMA foreign_keys = ON;",
-        "CREATE TABLE IF NOT EXISTS team(name TEXT, year TEXT, stat TEXT, units TEXT, value REAL);",
-        "CREATE TABLE IF NOT EXISTS individual(name TEXT, year TEXT, team TEXT, stat TEXT, units TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
+        "CREATE TABLE IF NOT EXISTS team_season(name TEXT, year TEXT, stat TEXT, units TEXT, value REAL);",
+        "CREATE TABLE IF NOT EXISTS team(name TEXT, date TEXT, stat TEXT, units TEXT, value REAL);",
+        "CREATE TABLE IF NOT EXISTS individual_season(name TEXT, year TEXT, team TEXT, stat TEXT, units TEXT, value REAL, FOREIGN KEY(team) REFERENCES team_season(name));",
+        "CREATE TABLE IF NOT EXISTS individual(name TEXT, date TEXT, team TEXT, stat TEXT, units TEXT, value REAL, FOREIGN KEY(team) REFERENCES team_season(name));",
     ]
 
     for x in statements:
@@ -27,7 +29,7 @@ def initDB(db_name):
     return db
 
 
-def insertTeamStats(db, stats):
+def insertTeamSeasonStats(db, stats):
     """
     stats is a list of data tuples, i.e:
     [
@@ -39,7 +41,7 @@ def insertTeamStats(db, stats):
     """
 
     curs = db.cursor()
-    curs.executemany("INSERT INTO team VALUES (?, ?, ?, ?, ?)", stats)
+    curs.executemany("INSERT INTO team_season VALUES (?, ?, ?, ?, ?)", stats)
     curs.close()
 
 
@@ -94,7 +96,7 @@ def using_clump(a):
     return [a[s] for s in np.ma.clump_unmasked(np.ma.masked_invalid(a))]
 
 
-def extractTeamStats(response):
+def extractTeamSeasonStats(response):
     """
     Given an http response, returns a list of data tuples following the team
     database format, i.e:
@@ -225,7 +227,7 @@ def doTeamStats(years, db):
             print("Invalid Response!")
             continue
 
-        stats = extractTeamStats(response)
+        stats = extractTeamSeasonStats(response)
         if len(stats) == 0:
             print("No stats for year ", year)
             continue
@@ -234,7 +236,7 @@ def doTeamStats(years, db):
         # year is the second arg
         stats = [np.insert(x, 1, year) for x in stats]
 
-        insertTeamStats(db, stats)
+        insertTeamSeasonStats(db, stats)
 
 def doIndividualStats(years, teams, db):
 
