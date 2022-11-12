@@ -171,7 +171,7 @@ def extractTeamStats(response):
     return np.array(result_set)
 
 
-def extractIndividualStats(response):
+def extractIndividualStats(response, team):
     """
     Given the response (html source page), extracts and converts all individual
     stats to their respective forms. It returns a list of data tuples for all
@@ -237,6 +237,22 @@ def doTeamStats(years, db):
 
         insertTeamStats(db, stats)
 
+def doIndividualStats(years, teams, db):
+
+    for year in years:
+        for team in teams:
+            url = craftUrl(team, year)
+            response = getPageSource(url)
+            if not response:
+                print("Invalid Response!")
+                continue
+
+            stats = extractIndividualStats(response)
+            if len(stats) == 0:
+                print("No stats for {} {}".format(team, year))
+                continue
+
+            insertIndividualStats(db, stats)
 
 
 def main():
@@ -262,6 +278,7 @@ def main():
     # open up and initialize the DB
     conn = initDB("stats.db")
     doTeamStats(range(2018, 2022, 1), conn)
+    doIndividualStats(range(2018, 2022, 1), teams, conn)
     conn.commit()
     conn.close()
 
