@@ -24,7 +24,6 @@ def initDB(db_name):
     for x in statements:
         curs.execute(x)
 
-
     curs.close()
     return db
 
@@ -107,11 +106,10 @@ def extractTeamSeasonStats(response):
     """
     bs = BeautifulSoup(response.text, "html.parser")
 
-
     labels = bs.find_all("caption")
     labels = [x.string for x in labels][0:13]
-    tables = bs.find_all("table")[0:13] # only interested in the team stats, not
-                                        # game to game etc
+    tables = bs.find_all("table")[0:13]  # only interested in the team stats, not
+    # game to game etc
 
     result_set = []
 
@@ -155,7 +153,6 @@ def extractTeamSeasonStats(response):
         # now we split values in the array
         split = using_clump(values)
 
-
         for i in range(len(teams)):
             for j in range(len(headers)):
                 try:
@@ -164,10 +161,9 @@ def extractTeamSeasonStats(response):
                     stat_header = headers[j].lower().replace(" ", "_")
                     value = float(split[i][j])
                     result_set.append((team_name, stat_name, stat_header, value))
-                
+
                 except:
                     print("Error getting stat")
-
 
     return np.array(result_set)
 
@@ -222,7 +218,7 @@ def doTeamStats(years, db):
     for year in years:
         url = craftUrl(None, year)
 
-        response = getPage(url) 
+        response = getPage(url)
         if not response:
             print("Invalid Response!")
             continue
@@ -237,6 +233,7 @@ def doTeamStats(years, db):
         stats = [np.insert(x, 1, year) for x in stats]
 
         insertTeamSeasonStats(db, stats)
+
 
 def doIndividualStats(years, teams, db):
 
@@ -256,7 +253,7 @@ def doIndividualStats(years, teams, db):
             insertIndividualStats(db, stats)
 
 
-def main():
+def doSeasonStats(db):
     teams = [
         "alberta",
         "bc",
@@ -273,16 +270,15 @@ def main():
         "ubco",
     ]
 
-    # testing
-    # req_test(teams[0], 2022)
+    doTeamStats(range(2018, 2022, 1), db)
+    # doIndividualStats(range(2018, 2022, 1), teams, conn)
 
-    # open up and initialize the DB
+
+def main():
     conn = initDB("stats.db")
-    doTeamStats(2022, conn)
-    doIndividualStats(range(2018, 2022, 1), teams, conn)
+    doSeasonStats(conn)
     conn.commit()
     conn.close()
-
 
 
 if __name__ == "__main__":
