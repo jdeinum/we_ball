@@ -276,7 +276,7 @@ def main():
 
     # open up and initialize the DB
     conn = initDB("stats.db")
-    doTeamStats(range(2018, 2022, 1), conn)
+    doTeamStats(2022, conn)
     doIndividualStats(range(2018, 2022, 1), teams, conn)
     conn.commit()
     conn.close()
