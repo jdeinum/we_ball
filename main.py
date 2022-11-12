@@ -3,7 +3,6 @@ import os
 import sqlite3
 import sqlite3 as sq3
 
-from bs4 import BeautifulSoup
 from bs4 import BeautifulSoup, Doctype
 import numpy as np
 import requests
@@ -17,7 +16,7 @@ def initDB(db_name):
     statements = [
         "PRAGMA foreign_keys = ON;",
         "CREATE TABLE IF NOT EXISTS team(name TEXT, year TEXT, stat TEXT, units TEXT, value REAL);",
-        "CREATE TABLE IF NOT EXISTS individual(name TEXT, year TEXT, team TEXT, stat TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
+        "CREATE TABLE IF NOT EXISTS individual(name TEXT, year TEXT, team TEXT, stat TEXT, units TEXT, value REAL, FOREIGN KEY(team) REFERENCES team(name));",
     ]
 
     for x in statements:
@@ -48,7 +47,7 @@ def insertIndividualStats(db, stats):
     """
     stats is a list of data tuples, i.e:
     [
-    ("jacob_deinum", 2022, "blocks", 100),
+        ("jacob_deinum", "team", 2022, "blocks", 100),
     ...
     ]
     It's expected that all strings are lowercase and underscores replace any spaces
@@ -114,7 +113,7 @@ def extractTeamStats(response):
 
     result_set = []
 
-    school_lables = [
+    school_labels = [
         "Alberta",
         "Trinity Western",
         "UBC",
@@ -144,7 +143,7 @@ def extractTeamStats(response):
         # seperate the first row into headers and teams
         index = None
         for i in range(len(x)):
-            if x[i] in school_lables:
+            if x[i] in school_labels:
                 index = i
                 break
 
@@ -228,7 +227,7 @@ def doTeamStats(years, db):
 
         stats = extractTeamStats(response)
         if len(stats) == 0:
-            print("no stats for year ", year)
+            print("No stats for year ", year)
             continue
 
         # insert the year into the stats
